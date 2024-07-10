@@ -75,6 +75,19 @@ public class StudentControl {
 		for(StudentVO svo : students) {
 			System.out.println(svo.briefShow());
 		}
+		
+	
+//	// 수정기능.
+//	void modStu() {
+//			
+//		}
+//	
+//	// 삭제기능.
+//	void removeStudent() {
+//		
+//	}
+		
+		
 	}// end of studentList().
 	
 }
