@@ -1,5 +1,8 @@
 package co.yedam.control;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,8 +31,10 @@ public class StudentControl {
 			addStudent();
 			break;
 		case 3 : 
+			modifyStudent();
 			break;
 		case 4 : 
+			removeStudent();
 			break;
 		case 5 :
 			System.out.println("종료합니다.");
@@ -37,6 +42,42 @@ public class StudentControl {
 		}
 		}
 	}// end of run().
+	void modifyStudent() {
+		String sno = ""; // 블럭레벨 변수.
+		while(true) {
+		System.out.println("변경할 학생번호> ");
+		sno = scn.nextLine();
+		if(sdao.selectExists(sno) == 1) {
+			// 학생번호 존재.
+			break;
+		}
+		System.out.println("찾는 학생번호가 없음 학생번호 다시 입력> ");
+		
+		}
+		System.out.println("변경할 연락처> ");
+		String phone = scn.nextLine();
+		System.out.println("변경할 주소> ");
+		String addr = scn.nextLine();
+		
+		StudentVO svo = new StudentVO();
+		svo.setAddress(addr);
+		svo.setAddress(phone);
+		svo.setAddress(sno);
+		
+		if(sdao.updateStudent(svo)) {
+			System.out.println("수정완료!");
+		}
+	}
+	void removeStudent() {
+		Scanner scn = new Scanner(System.in);
+		System.out.println(">학생번호 입력.");
+		String sno = scn.nextLine();
+		if(sdao.removeStudent(sno)) {
+			System.out.println("삭제되었습니다");
+		}else {
+			System.out.println("삭제안됨");
+		}
+	}
 	
 	// 등록 기능.
 	void addStudent() {
@@ -75,19 +116,8 @@ public class StudentControl {
 		for(StudentVO svo : students) {
 			System.out.println(svo.briefShow());
 		}
-		
-	
-//	// 수정기능.
-//	void modStu() {
-//			
-//		}
-//	
-//	// 삭제기능.
-//	void removeStudent() {
-//		
-//	}
-		
-		
+
 	}// end of studentList().
+
 	
 }

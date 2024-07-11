@@ -10,6 +10,7 @@ import java.util.Scanner;
 import co.yedam.vo.StudentVO;
 
 public class AppTests {
+	//기능
 	public static Connection getConn() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String driver = "oracle.jdbc.driver.OracleDriver";
