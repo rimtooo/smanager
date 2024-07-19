@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.mapper.BoardMapper">
+
+	<select id="selectList" resultType="com.yedam.vo.BoardVO">
+		select board_no
+			  ,title
+			  ,content
+			  ,writer
+			  ,view_cnt
+			  ,write_date
+		from tbl_board
+		order by board_no
+	</select>
+	
+	<!-- 페이징 목록. -->
+	<select id="selectListPaging" parameterType="com.yedam.common.SearchVTO">
+			select b.*
+			from (select rownum rn, a.*
+     				 from    (select *
+               				from tbl_board
+               				where
+               				<choose>
+               					<when test="searchCondition == 'T'.toString() ">
+               						title like '%'|| #{keyword} ||'%'
+               					</when>
+               					<when test="searchCondition == 'W'.toString() ">
+               						writer like '%'|| #{keyword} ||'%'
+               					</when>
+               					<when test="searchCondition == 'TW'.toString() ">
+               						title like '%'|| #{keyword} ||'%' or writer like '%'|| #{keyword} ||'%'
+               					</when>
+												<otherwise>1 = 1</otherwise>
+               				</choose>
+               				order by board_no ) a ) b
+			where b.rn > (#{page} - 1) * 5
+			<![CDATA[
+			and   b.rn <= (#{page} * 5)
+			]]>
+	</select>
+	
+	<!-- 페이징 계산용 전체건수. -->
+	<select id="selectTotalCount">
+		select count(1)
+		from tbl_board
+		where
+               				<choose>
+               					<when test="searchCondition == 'T'.toString() ">
+               						title like '%'|| #{keyword} ||'%'
+               					</when>
+               					<when test="searchCondition == 'W'.toString() ">
+               						writer like '%'|| #{keyword} ||'%'
+               					</when>
+               					<when test="searchCondition == 'TW'.toString() ">
+               						title like '%'|| #{keyword} ||'%' or writer like '%'|| #{keyword} ||'%'
+               					</when>
+												<otherwise>1 = 1</otherwise>
+               				</choose>
+	</select>
+	
+	<insert id="insertBoard" parameterType="com.yedam.vo.BoardVO">
+		insert into tbl_board (board_no, title, writer, content)
+		values(board_seq.nextval, #{title}, #{writer}, #{content})
+	</insert>
+	
+	<update id="updateBoard">
+
+        update     tbl_board
+        <set>
+        <if test="title != null">
+            title = #{title}
+        </if>
+        <if test="content != null">
+            ,content = #{content}
+        </if>
+        </set>
+        where    board_no = #{boardNo}
+    </update>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete from tbl_board
+		where board_no = #{boardNo}
+	</delete>
+	
+	<select id="selectBoard" parameterType="int">
+		select *
+		from tbl_board
+		where board_no = #{boardNo}
+	</select>
+	
+</mapper>
