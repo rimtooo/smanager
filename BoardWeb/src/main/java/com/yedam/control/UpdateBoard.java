@@ -33,7 +33,7 @@ public class UpdateBoard implements Control {
             // 수정페이지로 이동.
             resp.sendRedirect("updateBoard.do?bno=" + bno);
         }
-
+ 
     }
 
 }

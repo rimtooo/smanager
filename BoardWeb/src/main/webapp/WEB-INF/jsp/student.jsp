@@ -23,7 +23,7 @@
 		<th>학생번호</th><td><%=std.getStdNo() %></td></tr>
 	<tr>
 		<th>이름</th><td><%=std.getStdName() %></td></tr>
-	<tr>
+	<tr> 
 		<th>연락처</th><td><%=std.getStdPhone() %></td></tr>
 	<tr>
 		<th>주소</th><td><%=std.getAddress() %></td></tr>

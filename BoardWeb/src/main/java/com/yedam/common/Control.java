@@ -10,3 +10,4 @@ public interface Control {
 	void exec(HttpServletRequest req, HttpServletResponse resp) //
 			throws ServletException, IOException;
 }
+ 

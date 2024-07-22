@@ -48,7 +48,7 @@ public class AddBoardControl implements Control {
 			if(svc.addBoard(bvo)) {
 				// 목록이동.
 				resp.sendRedirect("boardList.do");
-			}	
+			}	 
 	}
 
 }

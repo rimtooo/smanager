@@ -14,3 +14,4 @@ public class BoardVO {
 	private Date writeDate;
 	private String image;
 }
+ 

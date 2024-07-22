@@ -27,7 +27,7 @@
 	<td><%=svo.getStdName() %></td>
 	<td> <%=svo.getStdPhone() %></td>
 	</tr>		
-	<%} %>
+	<%} %> 
 	</tbody>
 	</table>
 	<!-- HTML 영역. -->

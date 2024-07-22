@@ -25,7 +25,7 @@
 			<tr>
 				<th>생일</th>
 				<td><input type="date" name="sbirth" id=""></td>
-			</tr>
+			</tr> 
 			<tr>
 				<td colspan="2" align="center">
 					<button type="submit">저장</button>

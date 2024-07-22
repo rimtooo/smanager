@@ -17,7 +17,7 @@
 		student.setStdName("홍길동");
 		request.setAttribute("student", student);
 		String msg = "Hello";
-	%>
+	%> 
 	
 	<mytag:set var="msg" value="Hello2"></mytag:set>
 	<mytag:set var="age" value="20" />

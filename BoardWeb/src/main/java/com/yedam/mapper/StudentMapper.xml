@@ -29,7 +29,7 @@
   <update id="updateStudent" parameterType="student">
   	update student 
   	set std_phone = #{stdPhone}
-  	where std_no = #{stdNo}
+  	where std_no = #{stdNo} 
   </update>
   
   <delete id="deleteStudent" parameterType="string">

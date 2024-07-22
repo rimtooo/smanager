@@ -102,5 +102,5 @@
 		from tbl_board
 		where board_no = #{boardNo}
 	</select>
-
+ 
 </mapper>

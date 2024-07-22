@@ -26,7 +26,7 @@
 				</div>
 			</div>
 		</form>
-	</div>
+	</div> 
 	<!-- 검색기능. -->
 	<table class="table">
 		<thead>

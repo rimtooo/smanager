@@ -8,3 +8,4 @@ public class SearchVTO {
 	private String searchCondition;
 	private String keyword;
 }
+ 

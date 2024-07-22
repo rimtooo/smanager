@@ -18,7 +18,7 @@ public class BoardServiceImpl implements BoardService {
 			DataSource.getInstance().openSession(true); //true 넣으면 자동 커밋됨.
 	BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 
-
+ 
 	@Override
 	public List<BoardVO> boardList(SearchVTO search) {
 //		return mapper.selectList();

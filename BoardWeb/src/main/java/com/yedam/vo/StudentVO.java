@@ -10,3 +10,4 @@ public class StudentVO {
 	private String address;
 	private String birthDate;
 }
+ 

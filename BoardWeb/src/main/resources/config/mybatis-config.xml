@@ -20,7 +20,7 @@
         <property name="password" value="jsp"/>
       </dataSource>
     </environment>
-  </environments>
+  </environments> 
   <mappers>
     <mapper resource="com/yedam/mapper/StudentMapper.xml"/>
     <mapper resource="com/yedam/mapper/BoardMapper.xml"/>

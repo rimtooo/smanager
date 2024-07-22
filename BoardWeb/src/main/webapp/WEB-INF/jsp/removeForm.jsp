@@ -24,7 +24,7 @@
         <tr>
             <th>내용</th>
             <td>${board.content }</td>
-        </tr>
+        </tr> 
         <tr>
             <th>작성자</th>
             <td colspan="3">${board.writer }</td>

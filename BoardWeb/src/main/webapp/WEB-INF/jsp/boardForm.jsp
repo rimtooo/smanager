@@ -19,7 +19,7 @@
 		<tr>
 			<th>파일</th>
 			<td><input class="form-control" type="file" name="img" ></td>
-		</tr>
+		</tr> 
 		<tr>
 			<td colspan="2" align="center">
 				<input class="btn btn-primary" type="submit">

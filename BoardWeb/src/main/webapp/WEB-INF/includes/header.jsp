@@ -49,7 +49,7 @@
 							class="list-group-item list-group-item-action list-group-item-light p-3"
 							href="logout.do">로그아웃</a>
 					</c:otherwise>
-				</c:choose>
+				</c:choose> 
 				<a
 					class="list-group-item list-group-item-action list-group-item-light p-3"
 					href="#!">Profile</a> <a

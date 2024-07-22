@@ -24,7 +24,7 @@
             <th>내용</th>
             <td><textarea class="form-control" name="content"><%=board.getContent() %></textarea></td>
         </tr>
-        <tr>
+        <tr> 
             <th>작성자</th>
             <td colspan="3"><%=board.getWriter() %></td>
         </tr>

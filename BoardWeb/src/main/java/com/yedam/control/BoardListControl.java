@@ -47,7 +47,7 @@ public class BoardListControl implements Control {
 		req.getRequestDispatcher("WEB-INF/jsp/boardList.jsp")//
 			.forward(req, resp); //페이지 재지정.
 	}
-
+ 
 	
 
 	

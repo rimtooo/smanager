@@ -33,6 +33,6 @@ public class LoginControl implements Control {
 					.forward(req, resp); //페이지 재지정.
 		}
 
-	}
+	} 
 
 }

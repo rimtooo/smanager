@@ -22,7 +22,7 @@
 	<tr>
 		<td colspan="2" align="center">
 			<input type="submit" value="로그인" class="btn btn-primary">
-		</td>
+		</td> 
 	</tr>
 </table>
 </form>

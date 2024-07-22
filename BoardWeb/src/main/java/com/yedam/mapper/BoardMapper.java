@@ -19,3 +19,4 @@ public interface BoardMapper {
 	int deleteBoard(int boardNo);
 	BoardVO selectBoard(int boardNo);
 }
+ 

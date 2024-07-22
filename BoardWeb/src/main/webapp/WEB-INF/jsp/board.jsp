@@ -32,7 +32,7 @@
 				<th>파일</th>
 				<td colspan="3"><img width="250px" src="images/${board.image }"></td>
 			</tr>
-			<tr>
+			<tr> 
 				<td colspan="4" align="center"><c:choose>
 						<c:when test="${logid == board.writer }">
 							<input class="btn btn-danger" type="submit" value="삭제화면">

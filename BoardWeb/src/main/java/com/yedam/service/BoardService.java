@@ -19,3 +19,4 @@ public interface BoardService {
 	boolean removeBoard(int boardNo);
 	BoardVO getBoard(int boardNo);
 }
+ 
