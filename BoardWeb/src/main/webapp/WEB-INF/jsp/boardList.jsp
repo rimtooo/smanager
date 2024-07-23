@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="../includes/header.jsp"%>
 </head>
 <body>
 	<h3>게시글목록(boardList.jsp)</h3>
@@ -90,7 +89,6 @@
 
 
 			<!-- next 페이지. -->
-			
 			<c:if test="${paging.next}">
           <li class="page-item">
             <a class="page-link" href="boardList.do?searchCondition=${searchCondition}&keyword=${keyword}&page=${paging.endPage + 1}" aria-label="Next">
@@ -101,4 +99,3 @@
       
 		</ul>
 	</nav>
-	<jsp:include page="../includes/footer.jsp"></jsp:include>
