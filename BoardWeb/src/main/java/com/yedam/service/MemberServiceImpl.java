@@ -20,11 +20,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public List<MemberVO> memberList(String order) {
+	public List<MemberVO> memberList(String order, String res) {
 		// TODO Auto-generated method stub
-		return mapper.selectUser(order);
+		return mapper.selectUser(order, res);
 	}
 	
+
 
 }
  

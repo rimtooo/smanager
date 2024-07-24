@@ -21,10 +21,11 @@ import com.yedam.control.LoginControl;
 import com.yedam.control.LoginForm;
 import com.yedam.control.LogoutControl;
 import com.yedam.control.MemberListControl;
-import com.yedam.control.StudentListControl;
-import com.yedam.control.UpdateBoard;
 import com.yedam.control.ModifyBoard;
 import com.yedam.control.RemoveBoard;
+import com.yedam.control.ScriptControl;
+import com.yedam.control.StudentListControl;
+import com.yedam.control.UpdateBoard;
 
 /*
  * FrontController 역할은 사용자의 모든 요청을 처리.
@@ -32,17 +33,17 @@ import com.yedam.control.RemoveBoard;
  * 객체생성 -> init -> service -> destroy.
  */
 public class FrontController extends HttpServlet {
-	
+
 	Map<String, Control> map;
-	
+
 	public FrontController() {
 		map = new HashMap<>();
 //		System.out.println("FrontController() 호출.");
 //		super();
-	} 
-	
+	}
+
 	@Override
-		public void init(ServletConfig config) throws ServletException {
+	public void init(ServletConfig config) throws ServletException {
 //		System.out.println("init() 호출");
 		map.put("/boardList.do", new BoardListControl());
 		// 글 등록 구현 : 등록화면(BoardFrom.do) + DB등록(addBoard.do) -> 글목록페이지이동.
@@ -50,36 +51,36 @@ public class FrontController extends HttpServlet {
 		map.put("/addBoard.do", new AddBoardControl());
 		// 학생목록
 		map.put("/stdList.do", new StudentListControl());
-		
+
 		//
 		map.put("/board.do", new BoardControl());
-		//삭제
+		// 삭제
 		map.put("/removeBoard.do", new RemoveBoard());
 		map.put("/deleteBoard.do", new DeleteBoard());
-		//수정
+		// 수정
 		map.put("/modifyBoard.do", new ModifyBoard());
 		map.put("/updateBoard.do", new UpdateBoard());
-		//태그연습
+		// 태그연습
 		map.put("/action.do", new ActionControl());
-		//로그인
+		// 로그인
 		map.put("/loginForm.do", new LoginForm()); // 로그인화면 open.
 		map.put("/login.do", new LoginControl());
 		map.put("/logout.do", new LogoutControl());
-		 map.put("/memberList.do", new MemberListControl());
+		map.put("/memberList.do", new MemberListControl());
+
+		// 자바스크립트 연습하는 페이지 호출.
+		map.put("/javascript.do", new ScriptControl());
 	}
-	
-	
-	
-	
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) //
 			throws ServletException, IOException {
 //		System.out.println("service() 호출");
 		// boardList.do -목록. addBoard.do -등록.
-		String uri =req.getRequestURI(); // URL(http://localhost/BoardWeb/boardList.do) vs. URI
+		String uri = req.getRequestURI(); // URL(http://localhost/BoardWeb/boardList.do) vs. URI
 		String context = req.getContextPath(); // 프로젝트 명.
 		String path = uri.substring(context.length()); // "/boardList.do"
-		
+
 		System.out.println(path); // board.do
 		Control sub = map.get(path);
 		sub.exec(req, resp);

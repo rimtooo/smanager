@@ -16,6 +16,6 @@ public interface StudentMapper {
 	MemberVO selectMember(@Param("id") String id, @Param("pw") String pw);
 	
 	
-	List<MemberVO> selectUser(String order);
+	List<MemberVO> selectUser(@Param("order") String order, @Param("res") String res);
 }
  

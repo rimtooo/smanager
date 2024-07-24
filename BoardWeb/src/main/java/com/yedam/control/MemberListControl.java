@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.common.Control;
 import com.yedam.service.MemberService;
 import com.yedam.service.MemberServiceImpl;
-import com.yedam.vo.BoardVO;
 import com.yedam.vo.MemberVO;
 
 public class MemberListControl implements Control {
@@ -20,12 +19,16 @@ public class MemberListControl implements Control {
 		// TODO Auto-generated method stub
 		
 		String order = req.getParameter("order");
+		String res = req.getParameter("res");
 		
 		MemberService mvc = new MemberServiceImpl();
 //		List<BoardVO> list = svc.boardList(Integer.parseInt(page));
-		List<MemberVO> list = mvc.memberList(order);
-		req.setAttribute("memberList", list);
+		order = order == null ? "member_id" : order;
+		res = res == null ? "user" : res;
 		
+		List<MemberVO> list = mvc.memberList(order, res);
+		req.setAttribute("memberList", list);
+		req.setAttribute("res", res);
 		
 		req.getRequestDispatcher("admin/memberList.tiles")//
 		.forward(req, resp); //페이지 재지정.

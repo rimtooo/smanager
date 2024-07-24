@@ -6,5 +6,7 @@ import com.yedam.vo.MemberVO;
 
 public interface MemberMapper {
 	List<MemberVO> selectUser();
+	List<MemberVO> selectAdmin();
+	
 
 }

@@ -37,11 +37,7 @@
 			</tr>
 		</thead>
 		<tbody>
-
-
 			<c:forEach var="board" items="${boardList }">
-
-
 				<tr>
 					<td>${board.boardNo}</td>
 					<td><a href="board.do?page=${paging.page }&bno=${board.boardNo}">${board.title}</a></td>
@@ -49,17 +45,13 @@
 					<td>${board.writeDate}</td>
 				</tr>
 			</c:forEach>
-
 		</tbody>
-
 	</table>
 	<p>${paging }</p>
 	<!-- 페이징 -->
 	<nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
-
 			<!-- prev 페이지. -->
-
 			<c:if test="${paging.prev }">
         <li class="page-item">
           <a class="page-link" href="boardList.do?searchCondition=${searchCondition}&keyword=${keyword}&page=${paging.startPage - 1}" aria-label="Previous">
@@ -67,9 +59,7 @@
           </a>
         </li>
       </c:if>
-
 			<!-- 페이지 수만큼 링크생성. -->
-
 			<c:forEach var="p" begin="${paging.startPage }"
 				end="${paging.endPage }">
 				<c:choose>
@@ -85,9 +75,6 @@
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
-
-
-
 			<!-- next 페이지. -->
 			<c:if test="${paging.next}">
           <li class="page-item">
