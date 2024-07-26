@@ -45,7 +45,7 @@
 
 	<!-- 페이징 목록. -->
 	<select id="selectListPaging"
-		parameterType="com.yedam.common.SearchVTO">
+		parameterType="com.yedam.common.SearchVO">
 		select b.*
 		from (select rownum rn, a.*
 		from (select *

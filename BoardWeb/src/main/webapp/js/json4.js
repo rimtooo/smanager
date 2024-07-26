@@ -1,5 +1,5 @@
 /**
- * jason4.js
+ * json4.js
  */
 document.querySelector('#show').remove();
 document.querySelector('div.container-fluid>div:nth-of-type(2)').remove();

@@ -1,19 +1,47 @@
 package com.yedam.common;
 
-import com.yedam.service.BoardService;
-import com.yedam.service.BoardServiceImpl;
+import com.yedam.service.ReplyService;
+import com.yedam.service.ReplyServiceImpl;
+import com.yedam.vo.ReplyVO;
 
 
 public class AppTest {
 	public static void main(String[] args) {
-		BoardService svc = new BoardServiceImpl();
-		SearchVTO search = new SearchVTO();
-		search.setSearchCondition("TW");
-		search.setKeyword("웹은");
+
+		ReplyService svc = new ReplyServiceImpl();
+		
+		SearchVO search = new SearchVO();
+		
+		search.setBno(260);
 		search.setPage(1);
 		
-		svc.boardList(search).forEach(System.out::println);
-		System.out.println("- End -");
+		svc.replyList(search).forEach(System.out::println);
+		
+		System.out.println(" --End-- ");
+		
+		
+//		ReplyVO rvo = new ReplyVO();
+//		rvo.setReplyContent("등록연습");
+//		rvo.setReplyer("user03");
+//		rvo.setBoardNo(260);
+//		
+//		if(svc.removeReply(1)) {
+//			System.out.println("삭제완료!");
+//		}
+//		
+//		svc.addReply(rvo);
+		
+		
+		
+		
+		//		BoardService svc = new BoardServiceImpl();
+//		SearchVTO search = new SearchVTO();
+//		search.setSearchCondition("TW");
+//		search.setKeyword("웹은");
+//		search.setPage(1);
+//		
+//		svc.boardList(search).forEach(System.out::println);
+//		System.out.println("- End -");
 		
 		
 		

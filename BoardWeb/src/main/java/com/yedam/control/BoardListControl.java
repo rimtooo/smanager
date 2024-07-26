@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
-import com.yedam.common.SearchVTO;
+import com.yedam.common.SearchVO;
 import com.yedam.common.pageDTO;
 import com.yedam.service.BoardService;
 import com.yedam.service.BoardServiceImpl;
@@ -25,7 +25,7 @@ public class BoardListControl implements Control {
 		String sc = req.getParameter("searchCondition");
 		String kw = req.getParameter("keyword");
 		
-		SearchVTO search = new SearchVTO();
+		SearchVO search = new SearchVO();
 		search.setKeyword(kw);
 		search.setPage(Integer.parseInt(page));
 		search.setSearchCondition(sc);
