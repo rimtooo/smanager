@@ -13,7 +13,7 @@
 		order by
 		reply_no
 	</select>
-
+ 
 	<select id="selectListPaging"
 		parameterType="com.yedam.common.SearchVO"
 		resultType="com.yedam.vo.ReplyVO">

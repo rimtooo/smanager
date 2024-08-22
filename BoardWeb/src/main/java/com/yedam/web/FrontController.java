@@ -12,12 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
 import com.yedam.control.ActionControl;
-import com.yedam.control.AddBoardControl;
 import com.yedam.control.AddReplyControl;
+import com.yedam.control.AddScheduleControl;
 import com.yedam.control.BoardControl;
 import com.yedam.control.BoardForm;
 import com.yedam.control.BoardListControl;
+import com.yedam.control.CntByMember;
 import com.yedam.control.DeleteBoard;
+import com.yedam.control.DeleteScheduleControl;
+import com.yedam.control.FullCalendar;
+import com.yedam.control.GoogleChart;
 import com.yedam.control.ImageDownLoad;
 import com.yedam.control.LoginControl;
 import com.yedam.control.LoginForm;
@@ -56,7 +60,7 @@ public class FrontController extends HttpServlet {
 		map.put("/boardList.do", new BoardListControl());
 		// 글 등록 구현 : 등록화면(BoardFrom.do) + DB등록(addBoard.do) -> 글목록페이지이동.
 		map.put("/boardForm.do", new BoardForm());
-		map.put("/addBoard.do", new AddBoardControl());
+		//map.put("/addBoard.do", new AddBoardControl());
 		// 학생목록
 		map.put("/stdList.do", new StudentListControl());
 
@@ -93,6 +97,21 @@ public class FrontController extends HttpServlet {
 		// 페이징을 위한 전체건수.
 		map.put("/pagingCount.do", new PagingCount());
 		map.put("/imageDownload.do", new ImageDownLoad());
+		// 작성자별 게시건수.
+		map.put("/countByMember.do", new CntByMember());
+		// 차트페이지.
+		map.put("/googleChart.do", new GoogleChart());
+		
+		
+		
+		
+		// fullcalendar 연습.
+		map.put("/fullcalendar.do", new FullCalendar());
+		// 일정을 등록하는..
+		map.put("/addschedule.do", new AddScheduleControl());
+		// 일정을 삭제하는..
+		map.put("/deleteschedule.do", new DeleteScheduleControl());
+		
 		
 	}
 

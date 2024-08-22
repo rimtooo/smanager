@@ -15,7 +15,6 @@ public class RemoveBoard implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String bno = req.getParameter("bno");
 		String page = req.getParameter("page");
 		

@@ -4,17 +4,17 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yedam.mapper.BoardMapper">
 
-	
+
 	<select id="selectMember" resultType="com.yedam.vo.MemberVO">
-	select count*
-	from tbl_member
-	where member_id= #{id}
-	and   member_pw= #{pw}
+		select count*
+		from tbl_member
+		where member_id= #{id}
+		and member_pw= #{pw}
 	</select>
-	
-	
-	
-	
+
+
+
+
 	<sql id="selectCondition">
 		where
 		<choose>
@@ -25,7 +25,8 @@
 				writer like '%'|| #{keyword} ||'%'
 			</when>
 			<when test="searchCondition == 'TW'.toString() ">
-				title like '%'|| #{keyword} ||'%' or writer like '%'|| #{keyword} ||'%'
+				title like '%'|| #{keyword} ||'%' or writer like
+				'%'|| #{keyword} ||'%'
 			</when>
 			<otherwise>1 = 1</otherwise>
 		</choose>
@@ -71,7 +72,8 @@
 				writer like '%'|| #{keyword} ||'%'
 			</when>
 			<when test="searchCondition == 'TW'.toString() ">
-				title like '%'|| #{keyword} ||'%' or writer like '%'|| #{keyword} ||'%'
+				title like '%'|| #{keyword} ||'%' or writer like
+				'%'|| #{keyword} ||'%'
 			</when>
 			<otherwise>1 = 1</otherwise>
 		</choose>
@@ -80,7 +82,8 @@
 	<insert id="insertBoard" parameterType="com.yedam.vo.BoardVO">
 		insert into tbl_board
 		(board_no, title, writer, content, image)
-		values(board_seq.nextval, #{title}, #{writer}, #{content}, #{image} )
+		values(board_seq.nextval,
+		#{title}, #{writer}, #{content}, #{image} )
 	</insert>
 
 	<update id="updateBoard">
@@ -104,16 +107,45 @@
 
 	<select id="selectBoard" parameterType="int">
 		select board_no
-					,title
-					,content
-					,writer
-					,view_cnt
-					,write_date
-					,image
+		,title
+		,content
+		,writer
+		,view_cnt
+		,write_date
+		,image
 		from tbl_board
 		where board_no = #{boardNo}
 	</select>
-	
-	
- 
+
+
+	<!-- fullcalendar -->
+	<select id="calendarList" resultType="com.yedam.vo.ScheduleVO">
+		select title as "title"
+		,start_date as "start"
+		,end_date as "end"
+		from tbl_schedule
+	</select>
+
+	<insert id="insertSchedule"
+		parameterType="com.yedam.vo.ScheduleVO">
+		insert into tbl_schedule(title, start_date, end_date)
+		values(#{title}, #{start}, #{end})
+	</insert>
+
+	<select id="selectSchedule"
+		parameterType="com.yedam.vo.ScheduleVO" resultType="int">
+		select title as
+		"title"
+		,start_date as "start"
+		,end_date as "end"
+		from tbl_schedule
+	</select>
+
+	<delete id="deleteBoard" parameterType="com.yedam.vo.ScheduleVO">
+		delete from tbl_schedule
+		where title = #{title}
+		and start_date = #{start}
+		and end_date = #{end}
+	</delete>
+
 </mapper>

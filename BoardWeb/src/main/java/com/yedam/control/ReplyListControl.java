@@ -1,7 +1,9 @@
 package com.yedam.control;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +20,8 @@ import com.yedam.vo.ReplyVO;
 public class ReplyListControl implements Control {
 
 	@Override
-	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void exec(HttpServletRequest req, HttpServletResponse resp)//
+	throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		resp.setContentType("text/json;charset=utf-8");
 		
@@ -27,13 +30,19 @@ public class ReplyListControl implements Control {
 		
 		SearchVO search = new SearchVO();
 		search.setBno(Integer.parseInt(bno));
-		search.setPage(Integer.parseInt(page));
+		//search.setPage(Integer.parseInt(page));
 		
 		ReplyService svc = new ReplyServiceImpl();
 		List<ReplyVO> list = svc.replyList(search);
+		
+		// datatable 연습.
+		Map<String, Object> map = new HashMap<>();
+		map.put("data", list);
+		
 		// json문자열.
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);
+		json = gson.toJson(map); // datatable 연습.
 		
 		resp.getWriter().print(json);
 	}

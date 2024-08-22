@@ -29,6 +29,7 @@ public class MemberListControl implements Control {
 		List<MemberVO> list = mvc.memberList(order, res);
 		req.setAttribute("memberList", list);
 		req.setAttribute("res", res);
+		req.setAttribute("order", order);
 		
 		req.getRequestDispatcher("admin/memberList.tiles")//
 		.forward(req, resp); //페이지 재지정.

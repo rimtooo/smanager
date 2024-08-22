@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yedam.common.SearchVO;
 import com.yedam.vo.BoardVO;
+import com.yedam.vo.ScheduleVO;
 
 /*
  * 글목록, 등록, 수정, 삭제, 단건조회, 
@@ -18,5 +19,9 @@ public interface BoardMapper {
 	int updateBoard(BoardVO board);
 	int deleteBoard(int boardNo);
 	BoardVO selectBoard(int boardNo);
+	List<ScheduleVO> calendarList();
+	int insertSchedule(ScheduleVO svo);
+	//int selectSchedule(ScheduleVO svo);
+	int deleteSchedule(ScheduleVO svo);
 }
  

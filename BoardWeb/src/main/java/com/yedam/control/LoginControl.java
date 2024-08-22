@@ -31,6 +31,7 @@ public class LoginControl implements Control {
 			return;
 		}
 		// 세션객체(attribute)
+		System.out.println(id +','+ pw);
 		HttpSession session = req.getSession();
 		session.setAttribute("logid", id);
 		session.setMaxInactiveInterval(30 * 60);

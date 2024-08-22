@@ -8,12 +8,10 @@
 		select *
 		from tbl_member
 		where
-		responsibility=#{res} <!-- ${} = 그대로, #{}= 23 '23' -->
+		responsibility=#{res} <!-- ${} = 그대로, #{}= 23 
+			'23' -->
 		order by ${order}
 	</select>
-	
-	
-	
 
 	<select id="selectMember" resultType="com.yedam.vo.MemberVO">
 		select *
@@ -23,7 +21,8 @@
 	</select>
 
 	<select id="studentList" resultType="student">
-		Select * from student order by std_no
+		Select * from student order
+		by std_no
 	</select>
 
 	<select id="selectOne" parameterType="string"
@@ -34,13 +33,16 @@
 	</select>
 
 	<insert id="insertStudent" parameterType="student">
-		insert into student(std_no, std_name, std_phone, birth_date)
-		values(#{stdNo}, #{stdName}, #{stdPhone}, #{birthDate})
+		insert into
+		student(std_no, std_name, std_phone, birth_date)
+		values(#{stdNo},
+		#{stdName}, #{stdPhone}, #{birthDate})
 	</insert>
 
 	<update id="updateStudent" parameterType="student">
 		update student
-		set std_phone = #{stdPhone}
+		set
+		std_phone = #{stdPhone}
 		where std_no = #{stdNo}
 	</update>
 
@@ -48,5 +50,15 @@
 		delete from student
 		where std_no = #{stdNo}
 	</delete>
+
+	<select id="selectCountByMember" resultType="map">
+		select b.writer as "writer"
+					, m.member_nm as "member_name"
+					, count(1) as "member_cnt"
+		from tbl_board b
+		join tbl_member m
+		on b.writer = m.member_id
+		group by b.writer, m.member_nm
+	</select>
 
 </mapper>
