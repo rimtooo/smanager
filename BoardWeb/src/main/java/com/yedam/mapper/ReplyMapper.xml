@@ -13,18 +13,13 @@
 		order by
 		reply_no
 	</select>
- 
+
 	<select id="selectListPaging"
 		parameterType="com.yedam.common.SearchVO"
 		resultType="com.yedam.vo.ReplyVO">
-		select b.*
-		from(select /*+INDEX (r reply_pk)*/ rownum rn,r.*
-		from tbl_reply r
-		where r.board_no = #{bno} ) b
-		where b.rn > (#{page} -1)* 5
-        <![CDATA[
-        and b.rn <= (#{page}*5)
-        ]]>
+		 select b.* from(select /*+INDEX (r REPLY_NO)*/ rownum rn,r.* from 
+			tbl_reply r where r.board_no = #{bno} ) b where b.rn > (#{page} -1)* 5 <![CDATA[ 
+			and b.rn <= (#{page}*5) ]]> 
 	</select>
 
 	<insert id="insertReply" parameterType="com.yedam.vo.ReplyVO">
@@ -40,11 +35,22 @@
 		delete from tbl_reply
 		where reply_no = #{replyNo}
 	</delete>
-	
+
 	<select id="totalReplyCnt" resultType="int" parameterType="int">
 		select count(1)
 		from tbl_reply
 		where board_no = #{boardNo}
 	</select>
+	
+	<!-- <select id="selectListPaging" parameterType="com.yedam.common.SearchVO">
+            select b.*
+            from(select /+ INDEX_DESC (r reply_pk)/ rownum rn, r.*
+                from    tbl_reply r
+                where   r.board_no = #{bno} ) b
+            where b.rn > (#{page} - 1) * 5
+            <![CDATA[
+            and   b.rn <= (#{page} * 5)
+            ]]>
+    </select> -->
 
 </mapper>

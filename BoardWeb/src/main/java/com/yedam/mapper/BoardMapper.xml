@@ -134,18 +134,17 @@
 
 	<select id="selectSchedule"
 		parameterType="com.yedam.vo.ScheduleVO" resultType="int">
-		select title as
-		"title"
+		select title as "title"
 		,start_date as "start"
 		,end_date as "end"
 		from tbl_schedule
 	</select>
 
-	<delete id="deleteBoard" parameterType="com.yedam.vo.ScheduleVO">
+	<!-- <delete id="deleteBoard" parameterType="com.yedam.vo.ScheduleVO">
 		delete from tbl_schedule
 		where title = #{title}
 		and start_date = #{start}
 		and end_date = #{end}
-	</delete>
+	</delete> -->
 
 </mapper>

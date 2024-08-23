@@ -26,7 +26,7 @@ public class BoardControl implements Control {
 		req.setAttribute("board", board);
 		req.setAttribute("page", page);
 		
-		req.getRequestDispatcher("board/board.tiles")//
+		req.getRequestDispatcher("board/board2.tiles")//
 		.forward(req, resp); //페이지 재지정.
 	}
 

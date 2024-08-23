@@ -30,7 +30,7 @@ public class ReplyListControl implements Control {
 		
 		SearchVO search = new SearchVO();
 		search.setBno(Integer.parseInt(bno));
-		//search.setPage(Integer.parseInt(page));
+		search.setPage(Integer.parseInt(page));
 		
 		ReplyService svc = new ReplyServiceImpl();
 		List<ReplyVO> list = svc.replyList(search);
@@ -42,7 +42,7 @@ public class ReplyListControl implements Control {
 		// json문자열.
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);
-		json = gson.toJson(map); // datatable 연습.
+		//json = gson.toJson(map); // datatable 연습.
 		
 		resp.getWriter().print(json);
 	}
