@@ -44,4 +44,8 @@ public class MemberServiceImpl implements MemberService {
 	public List<Map<String, Object>> getCountByMember() {
 		return mapper.selectCountByMember();
 	}
+	@Override
+	public String signOutProc(Map<String, String> map) {
+		return mapper.deleteMemberProc(map);
+	}
 }

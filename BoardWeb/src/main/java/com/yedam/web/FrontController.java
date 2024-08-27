@@ -34,6 +34,7 @@ import com.yedam.control.RemoveReplyControl;
 import com.yedam.control.RemoveStudent;
 import com.yedam.control.ReplyListControl;
 import com.yedam.control.ScriptControl;
+import com.yedam.control.SignOutControl;
 import com.yedam.control.StudentJson;
 import com.yedam.control.StudentListControl;
 import com.yedam.control.UpdateBoard;
@@ -111,6 +112,10 @@ public class FrontController extends HttpServlet {
 		map.put("/addschedule.do", new AddScheduleControl());
 		// 일정을 삭제하는..
 		map.put("/deleteschedule.do", new DeleteScheduleControl());
+		
+		
+		// 회원탈퇴.
+		map.put("/signout.do", new SignOutControl());
 		
 		
 	}
